@@ -1,0 +1,16 @@
+[Unit]
+Description=WebQuest main service
+After=network.target
+
+[Service]
+WorkingDirectory=/home/nicolas/quest_web
+ExecStart=/home/nicolas/quest_web/web_server.sh
+Restart=always
+#StandardOutput=
+StandardError=syslog
+SyslogIdentifier=quest_web
+User=nicolas
+Group=nicolas
+
+[Install]
+WantedBy=multi-user.target

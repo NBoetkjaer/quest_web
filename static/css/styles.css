@@ -1,0 +1,7 @@
+
+p.codeblock {
+    background-color: lightgray;
+    font-family: courier, monospace;
+    color: darkblue;
+    white-space: pre-wrap;
+  }
