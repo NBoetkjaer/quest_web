@@ -14,7 +14,7 @@ positive = ['Super flot klaret!!',
             'Det var rigtigt - din hacker ;-)',
             '!! 1337 H4CK3R !!',
             'Excellent svaret',
-            'Easy peasy! Den klarede du jo let'
+            'Easy peasy! Den klarede du jo let',
             'Wauw - du må være professionel!',
             'Det kan du godt være stolt over',
             '100% - total i orden makker',
