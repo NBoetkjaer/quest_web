@@ -3,7 +3,7 @@ from requests.sessions import Session
 server='http://webquest.local'
 #server='http://localhost'
 #server='http://127.0.0.1'
-testCorrectAnswer = False
+testCorrectAnswer = True
 
 ### Opgave 1
 questGet = {
@@ -62,6 +62,27 @@ values = data['inputData']
 questAnswer = {
     'cmd'        : 'answer',
     'outputData' : sum(values) / len(values) if testCorrectAnswer else 0
+}
+
+r = s.post(server, json=questAnswer)
+data = r.json()
+print (data)
+
+### Opgave 42
+questGet = {
+    'cmd'    : 'get',
+    'questNo'  : 42,
+    'user'   : 'Ford Prefect'
+}
+
+r = s.post(server, json=questGet)
+data = r.json()
+print (data)
+
+values = data['inputData']
+questAnswer = {
+    'cmd'        : 'answer',
+    'outputData' : 'The Ultimate Question of Life, the Universe, and Everything' if testCorrectAnswer else 42
 }
 
 r = s.post(server, json=questAnswer)

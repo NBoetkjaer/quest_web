@@ -74,4 +74,8 @@ def answer_quest(args):
   return  quest.get_evaluation_message(questData, args)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=False, port=80, threaded=True)
+  import platform
+  debug = False
+  if platform.system().lower().find("win") == 0:
+    debug = True
+  app.run(host='0.0.0.0', debug=debug, port=80, threaded=True)
