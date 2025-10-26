@@ -1,8 +1,8 @@
-import requests
-import json
+from requests.sessions import Session
 
-server='http://webquest.local'
+#server='http://webquest.local'
 #server='http://localhost'
+server='http://127.0.0.1'
 testCorrectAnswer = True
 
 ### Opgave 1
@@ -12,17 +12,17 @@ questGet = {
     'user'   : 'Anders And'
 }
 
-r = requests.post(server, json=questGet)
+s = Session()
+r = s.post(server, json=questGet)
 data = r.json()
 print (data)
 
 questAnswer = {
     'cmd'        : 'answer',
-    'ID'         : data['ID'],
     'outputData' : data['inputData'] if testCorrectAnswer else ""
 }
 
-r = requests.post(server, json=questAnswer)
+r = s.post(server, json=questAnswer)
 data = r.json()
 print (data)
 
@@ -33,18 +33,17 @@ questGet = {
     'user'   : 'Anders And'
 }
 
-r = requests.post(server, json=questGet)
+r = s.post(server, json=questGet)
 data = r.json()
 print (data)
 
 values = data['inputData']
 questAnswer = {
     'cmd'        : 'answer',
-    'ID'         : data['ID'],
     'outputData' : values[0] + values[1] if testCorrectAnswer else 0
 }
 
-r = requests.post(server, json=questAnswer)
+r = s.post(server, json=questAnswer)
 data = r.json()
 print (data)
 
@@ -55,18 +54,17 @@ questGet = {
     'user'   : 'Terminator T1000'
 }
 
-r = requests.post(server, json=questGet)
+r = s.post(server, json=questGet)
 data = r.json()
 print (data)
 
 values = data['inputData']
 questAnswer = {
     'cmd'        : 'answer',
-    'ID'         : data['ID'],
     'outputData' : sum(values) / len(values) if testCorrectAnswer else 0
 }
 
-r = requests.post(server, json=questAnswer)
+r = s.post(server, json=questAnswer)
 data = r.json()
 print (data)
 

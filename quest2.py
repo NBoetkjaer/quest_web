@@ -3,7 +3,7 @@ import typing
 import random as rnd
 from utils import *
 
-class quest2(quest_base):
+class quest(quest_base):
 
     def __init__(self):
         super().__init__()
@@ -50,18 +50,19 @@ print(thisIsAList[2]) # Printer strengen 'Ged'
         'user'    : 'Super koder',
     }</p>
 
-<p class="codeblock flow-text">r = requests.post('http://webquest.local', data=questGet)</p>
+<p class="codeblock flow-text">r = s.post('http://webquest.local', json=questGet)</p>
 <p class="flow-text light">
-  Prøv at læse JSON pakken som du modtager fra servern, ligesom du gjorde i <a href="/?quest=1">opgave 1</a>. (hint: feltet 'inputData' i dictionary'et indeholder en liste med to tal)
+  Prøv at læse JSON pakken som du modtager fra servern, ligesom du gjorde i <a href="/?quest=1">opgave 1</a>.
+  (hint: feltet 'inputData' i dictionary'et indeholder en liste med to tal)
 </p>
 
 <p class="flow-text light">
-  Når du har fundet tallene i listen, skal du addere dem og sende svaret tilbage til serveren. Svaret skal pakkes i et 'dictionary' som vist nedenfor (udskift '%UniqueID' med det ID du modtog fra serveren og %Answer med den værdi du har regnet ud).
+  Når du har fundet tallene i listen, skal du addere dem og sende svaret tilbage til serveren.
+  Svaret skal pakkes i et 'dictionary' som vist nedenfor (udskift %Answer med den værdi du har regnet ud).
 </p>
 <p class="codeblock flow-text">questAnswer =
     {
         'cmd'        : 'answer',
-        'ID'         : %UniqueID # Det samme ID som vi modtog fra serveren.
         'outputData' : %Answer # Vi sender summen af de to tal vi modtog fra serveren.
     }
 </p>

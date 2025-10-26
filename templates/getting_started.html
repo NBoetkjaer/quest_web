@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>QuestWeb</title>
+  <!-- For all browsers -->
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
+  </link>
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png"> -->
+
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}"
+    media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"
+    media="screen,projection" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo">Quest Web</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="parallax"><img src="{{ url_for('static', filename='matrix.gif') }}" alt="Unsplashed background img">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="material-icons">Før du starter ...</i></h2>
+          <h5 class="center">Installation af Python og VS Code editoren</h5>
+
+          <h3>Installation af Python</h3>
+          <p class="flow-text light">
+            Inden du kan kommme i gang med at løse de forskellige opgaver, skal du sørge for at Python er installeret på
+            din PC.
+            Hvis du benytter Windows OS er det letteste at benytte Microsoft Store.
+          </p>
+          <ol class="collection">
+            <li class="collection-item">Åben 'Microsoft Store' (Find Store-app'en ved at Trykke på windows tasten og skrive
+              'store').
+            </li>
+            <li class="collection-item">Søg efter Python og installer den nyeste du kan finde f.eks. version 3.13</li>
+          </ol>
+
+          <h3>Installation af Visual Studio Code</h3>
+          <p class="flow-text light">
+            Visual Studio Code (VS Code) editoren er en god og hurtig editor til at skrive din kode i. Den kan også installeres ved at benytte Microsoft Store app'en.
+          </p>
+          <ol class="collection">
+            <li class="collection-item">Åben 'Microsoft Store' app'en igen </li>
+            <li class="collection-item">Søg efter Visual Studio Code og installer denne</li>
+          </ol>
+
+          <h3>Opsætning af Visual Studio Code </h3>
+          <p class="flow-text light">
+            Visual Studio Code editoren kan benyttes til mange forskellige programmeringssprog. Da vi ønsker at benytte Python 
+            skal du installer en <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python Extension</a> til VS Code.
+            Denne extension gør det muligt at skrive og debugge den Python kode, som du skal til at skrive.
+          </p>
+
+          <h3>Opsætning af Python</h3>
+          <p class="flow-text light">
+            Da de forskellige programmeringsopgaver skal hentes fra en webserver, benytter vi en Python hjælpe-pakke til at kommunikere med serveren.
+            Den pakke vi skal benytte hedder 'requests'. <br>
+            For at installere denne pakke skal du åbne en terminal / commando-prompt og skrive følgende:
+            <p class="codeblock flow-text">python -m pip install requests</p>
+          </p>
+
+          <h3>Test om det virker ...</h3>
+          <ol class="collection">
+            <li class="collection-item">Start VS code</li>
+            <li class="collection-item">opret en ny fil og giv den en navn der ender på '.py' (f.eks. test.py)</li>
+            <li class="collection-item">Skriv følgende kode i din nye Python fil:</li>
+            <p class="codeblock flow-text">print('Hejsa')</p>
+            <li class="collection-item">Tryk på &lt;F5&gt; for at køre og debugge dit Python program.</li>
+            <li class="collection-item"></li>
+          </ol>
+          <p class="flow-text light">
+            Hvis dit program skrev 'Hejsa' i VS Code terminal vinduet - Så virker din opsætning og du er klar til den <a href="/?quest=1">første opgave</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+    </div>
+    <div class="parallax"><img src="{{ url_for('static', filename='matrix.gif') }}" alt="Unsplashed background img">
+    </div>
+  </div>
+
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/init.js') }}"></script>
+</body>
+
+</html>

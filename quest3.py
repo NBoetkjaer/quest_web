@@ -3,7 +3,7 @@ import typing
 import random as rnd
 from utils import *
 
-class quest3(quest_base):
+class quest(quest_base):
     def __init__(self):
         super().__init__()
 
@@ -68,7 +68,7 @@ print(*range(20,10,-1))
         'user'    : 'Super koder', # Find selv på et navn eller brug dit eget.
     }</p>
 
-<p class="codeblock flow-text">r = requests.post('http://webquest.local', data=questGet)</p>
+<p class="codeblock flow-text">r = s.post('http://webquest.local', json=questGet)</p>
 <p class="flow-text light">
   Læs JSON pakken som du modtager fra servern, ligesom du gjorde i <a href="/?quest=1">opgave 1</a>.<br>
   (hint: feltet 'inputData' i dictionary'et indeholder listen med tal)
@@ -76,14 +76,13 @@ print(*range(20,10,-1))
 
 <p class="flow-text light">
   Når du har fundet tallene i listen, skal du beregne gennemsnittet og sende svaret til serveren.
-  Svaret skal pakkes i et 'dictionary' som vist nedenfor (udskift '%UniqueID' med det ID du modtog fra serveren og %Answer med den værdi du har regnet ud).<br>
+  Svaret skal pakkes i et 'dictionary' som vist nedenfor (udskift %Answer med den værdi du har regnet ud).<br>
   Held og lykke med at lave løkker og pas godt på at de ikke bliver til uendelige "uløkker" &#128514;
 </p>
 
 <p class="codeblock flow-text">questAnswer =
     {
         'cmd'        : 'answer',
-        'ID'         : %UniqueID # Det samme ID som vi modtog fra serveren.
         'outputData' : %Answer # Gennemsnittet af tallene
     }
 </p>
