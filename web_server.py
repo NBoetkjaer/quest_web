@@ -75,4 +75,4 @@ def answer_quest(args):
   return  quest.get_evaluation_message(questData, args)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=80, threaded=True)
+    app.run(host='0.0.0.0', debug=False, port=80, threaded=True)

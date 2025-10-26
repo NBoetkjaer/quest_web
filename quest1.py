@@ -23,7 +23,7 @@ class quest(quest_base):
         super().__init__()
 
     def get_new_quest(self) -> dict:
-        randomWord = quest1.Words[ rnd.randrange(0, len(quest1.Words)) ]
+        randomWord = quest.Words[ rnd.randrange(0, len(quest.Words)) ]
         questdata = {
             'Hint': 'Bare send beskeden retur.',
             'inputData': "Dette er en " + randomWord + " besked fra serveren"
