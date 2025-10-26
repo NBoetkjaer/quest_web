@@ -1,9 +1,9 @@
 from requests.sessions import Session
 
-#server='http://webquest.local'
+server='http://webquest.local'
 #server='http://localhost'
-server='http://127.0.0.1'
-testCorrectAnswer = True
+#server='http://127.0.0.1'
+testCorrectAnswer = False
 
 ### Opgave 1
 questGet = {

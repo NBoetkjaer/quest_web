@@ -1,7 +1,8 @@
-from quest_base import quest_base
+
 import typing
 import random as rnd
-from utils import *
+from quests.quest_base import (quest_base)
+from quests.utils import (safe_cast)
 
 class quest(quest_base):
 
@@ -12,7 +13,7 @@ class quest(quest_base):
         scalar1 = rnd.randrange(1000, 90000)
         scalar2 = rnd.randrange(1000, 90000)
         questdata = {
-            'Hint': 'Svaret er summen af de to tal.',
+            'hint': 'Svaret er summen af de to tal.',
             'inputData': [scalar1, scalar2]
         }
         return questdata

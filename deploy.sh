@@ -14,6 +14,8 @@ ssh $hostname "cd $BASEDIR; sudo rm -r ./*"
 # Copy new files.
 echo " **** Starting to copy files ****"
 scp ./*.*  $hostname:${RELATIVEDIR}
+echo " **** Starting to copy quests files ****"
+scp ./quests/*.*  $hostname:${RELATIVEDIR}quests/
 echo " **** Starting to copy boot files ****"
 scp -r ./boot/* $hostname:${RELATIVEDIR}boot/
 echo " **** Starting to copy static files ****"

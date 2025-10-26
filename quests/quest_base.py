@@ -1,5 +1,5 @@
 import typing
-from  utils import (getCallout, getPositiveFeedback, getNegatigveFeedback)
+from  quests.utils import (getCallout, getPositiveFeedback, getNegatigveFeedback)
 
 class quest_base(object):
 
@@ -13,9 +13,9 @@ class quest_base(object):
         retVal = self.check_answer(input, output)
         user = input['user']
         if retVal:
-            return { 'result': f'{getCallout()} {user} - {getPositiveFeedback()}'}
+            return { 'evaluation': f'{getCallout()} {user} - {getPositiveFeedback()}'}
         else:
-            return { 'result': f'{getCallout()} {user} - {getNegatigveFeedback()}'}
+            return { 'evaluation': f'{getCallout()} {user} - {getNegatigveFeedback()}'}
 
     def get_new_quest(self) -> dict:
         raise NotImplementedError()

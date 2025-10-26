@@ -1,11 +1,10 @@
 from flask import (Flask, render_template, request, session)
 from markupsafe import Markup
 
-import json
-import quest_manager as quest_manager
-from  utils import (safe_cast)
+from quests.quest_manager import quest_manager
+from  quests.utils import (safe_cast)
 
-questApp = quest_manager.quest_manager()
+questApp = quest_manager()
 app = Flask(__name__)
 app.secret_key = 'BAD_SECRET_KEY'
 

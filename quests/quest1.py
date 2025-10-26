@@ -1,7 +1,5 @@
-from quest_base import quest_base
-import typing
 import random as rnd
-
+from quests.quest_base import (quest_base)
 
 class quest(quest_base):
 
@@ -25,7 +23,7 @@ class quest(quest_base):
     def get_new_quest(self) -> dict:
         randomWord = quest.Words[ rnd.randrange(0, len(quest.Words)) ]
         questdata = {
-            'Hint': 'Bare send beskeden retur.',
+            'hint': 'Bare send beskeden retur.',
             'inputData': "Dette er en " + randomWord + " besked fra serveren"
         }
         return questdata

@@ -1,7 +1,8 @@
-from quest_base import quest_base
+
 import typing
 import random as rnd
-from utils import *
+from quests.quest_base import (quest_base)
+from quests.utils import (safe_cast)
 
 class quest(quest_base):
     def __init__(self):
@@ -12,7 +13,7 @@ class quest(quest_base):
         for i in range (rnd.randrange(10, 20)):
             values.append(rnd.randrange(-100, 100))
         questdata = {
-            'Hint': 'Beregn gennemsnittet.',
+            'hint': 'Beregn gennemsnittet.',
             'inputData': values
         }
         return questdata
