@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QuestWeb</title>
+    <!-- For all browsers -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}"></link>
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png"> -->
+
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/tic_tac_toe.css') }}"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+
+  <header>
+    <nav>
+      <div class="container">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Quest Web</a>
+          </div>
+      </div>
+    </nav>
+  </header>
+
+    <div class="parallax-container valign-wrapper">
+      <div class="parallax"><img src="{{ url_for('static', filename='matrix.gif') }}" alt="Unsplashed background img"></div>
+    </div>
+
+    <div class="container">
+      <div class="section">
+        <div class="col s12 m4">
+          <div class="icon-block">
+          <input type="button" value="New Game" id="newGameButton" onclick="newGameButton()"/>
+          <div id="game_message"></div>
+          <div id="board">
+              <div class="square" id="square0"></div>
+              <div class="square" id="square1"></div>
+              <div class="square" id="square2"></div>
+              <div class="square" id="square3"></div>
+              <div class="square" id="square4"></div>
+              <div class="square" id="square5"></div>
+              <div class="square" id="square6"></div>
+              <div class="square" id="square7"></div>
+              <div class="square" id="square8"></div>
+          </div>
+    <!-- The quest description is places here -->
+    {{ description }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+      <div class="section no-pad-bot">
+      </div>
+      <div class="parallax"><img src="{{ url_for('static', filename='matrix.gif') }}" alt="Unsplashed background img"></div>
+    </div>
+
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/init.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tic_tac_toe.js') }}"></script>
+  </body>
+</html>

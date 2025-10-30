@@ -1,31 +1,28 @@
-
-import typing
 import random as rnd
 from quests.quest_base import (quest_base)
 from quests.utils import (safe_cast)
-
 class quest(quest_base):
 
-    def __init__(self):
-        super().__init__()
+  def __init__(self):
+    super().__init__()
 
-    def get_new_quest(self) -> dict:
-        scalar1 = rnd.randrange(1000, 90000)
-        scalar2 = rnd.randrange(1000, 90000)
-        questdata = {
-            'hint': 'Svaret er summen af de to tal.',
-            'inputData': [scalar1, scalar2]
-        }
-        return questdata
+  def get_new_quest(self) -> dict:
+    scalar1 = rnd.randrange(1000, 90000)
+    scalar2 = rnd.randrange(1000, 90000)
+    questdata = {
+      'hint': 'Svaret er summen af de to tal.',
+      'inputData': [scalar1, scalar2]
+    }
+    return questdata
 
-    def check_answer(self, input: dict, output: dict) -> bool:
-        indata = input['inputData']
-        result = indata[0]  + indata[1]
-        answer = safe_cast(output['outputData'], int,-1)
-        return result == answer
+  def check_answer(self, input: dict, output: dict) -> bool:
+    indata = input['inputData']
+    result = indata[0]  + indata[1]
+    answer = safe_cast(output['outputData'], int,-1)
+    return result == answer
 
-    def get_description(self) -> str:
-        return r'''
+  def get_description(self) -> str:
+    return r'''
 <h2 class="center brown-text"><i class="material-icons">Opgave 2</i></h2>
 <h5 class="center">Læs input og læg to tal sammen</h5>
 
@@ -38,18 +35,16 @@ class quest(quest_base):
 </p>
 <p class="codeblock flow-text">thisIsAList = [35, 12, 'Ged']
 print(thisIsAList[0]) # Printer tallet 35 (første element)
-print(thisIsAList[2]) # Printer strengen 'Ged'
-</p>
+print(thisIsAList[2]) # Printer strengen 'Ged'</p>
 
 <p class="flow-text light">
   Prøv at sende nedenstående pakke til webserveren.
 </p>
-<p class="codeblock flow-text">questGet =
-    {
-        'cmd'     : 'get',
-        'questNo' : 2,
-        'user'    : 'Super koder',
-    }</p>
+<p class="codeblock flow-text">questGet = {
+  'cmd'     : 'get',
+  'questNo' : 2,
+  'user'    : 'Super koder',
+}</p>
 
 <p class="codeblock flow-text">r = s.post('http://webquest.local', json=questGet)</p>
 <p class="flow-text light">
@@ -61,12 +56,11 @@ print(thisIsAList[2]) # Printer strengen 'Ged'
   Når du har fundet tallene i listen, skal du addere dem og sende svaret tilbage til serveren.
   Svaret skal pakkes i et 'dictionary' som vist nedenfor (udskift %Answer med den værdi du har regnet ud).
 </p>
-<p class="codeblock flow-text">questAnswer =
-    {
-        'cmd'        : 'answer',
-        'outputData' : %Answer # Vi sender summen af de to tal vi modtog fra serveren.
-    }
-</p>
+<p class="codeblock flow-text">questAnswer = {
+  'cmd'        : 'answer',
+  'outputData' : %Answer # Vi sender summen af de to tal vi modtog fra serveren.
+}</p>
+
 <p class="flow-text light">
   Send pakken til serveren og se om du har svaret rigtig.
 </p>

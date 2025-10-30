@@ -71,7 +71,7 @@ def answer_quest(args):
   quest = questApp.get_quest(questNo)
   if quest == None:
     return  error_response('cmd=answer: Invalid quest number.')
-  return  quest.get_evaluation_message(questData, args)
+  return  quest.get_evaluation(questData, args)
 
 if __name__ == "__main__":
   import platform

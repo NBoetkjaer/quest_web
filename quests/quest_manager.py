@@ -16,7 +16,6 @@ class quest_manager(object):
             spec = importlib.util.spec_from_file_location(f'. {questName}', f"quests/{questName}.py")
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
-            print('here')
             return module.quest()
         except Exception as e: 
             print(f'Failed to import: {questName}. Exception: {repr(e)}')

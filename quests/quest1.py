@@ -3,36 +3,36 @@ from quests.quest_base import (quest_base)
 
 class quest(quest_base):
 
-    Words = [
-        'hemmelig',
-        'vigtig',
-        'underlig',
-        'mærkelig',
-        'fantastisk',
-        'vidunderlig',
-        'ekstraordinær',
-        'sindsyg',
-        'middelmådig',
-        'brilliant',
-        'skør'
-    ]
+  Words = [
+    'hemmelig',
+    'vigtig',
+    'underlig',
+    'mærkelig',
+    'fantastisk',
+    'vidunderlig',
+    'ekstraordinær',
+    'sindsyg',
+    'middelmådig',
+    'brilliant',
+    'skør'
+  ]
 
-    def __init__(self):
-        super().__init__()
+  def __init__(self):
+    super().__init__()
 
-    def get_new_quest(self) -> dict:
-        randomWord = quest.Words[ rnd.randrange(0, len(quest.Words)) ]
-        questdata = {
-            'hint': 'Bare send beskeden retur.',
-            'inputData': "Dette er en " + randomWord + " besked fra serveren"
-        }
-        return questdata
+  def get_new_quest(self) -> dict:
+    randomWord = quest.Words[ rnd.randrange(0, len(quest.Words)) ]
+    questdata = {
+      'hint': 'Bare send beskeden retur.',
+      'inputData': "Dette er en " + randomWord + " besked fra serveren"
+    }
+    return questdata
 
-    def check_answer(self, input: dict, output: dict) -> bool:
-        return input['inputData'] == output['outputData']
+  def check_answer(self, input: dict, output: dict) -> bool:
+    return input['inputData'] == output['outputData']
 
-    def get_description(self) -> str:
-        return r'''
+  def get_description(self) -> str:
+    return r'''
 <h2 class="center brown-text"><i>Opgave 1</i></h2>
 <h5 class="center">Introduktion til Python og http requests</h5>
 
@@ -53,18 +53,18 @@ class quest(quest_base):
   Når man skal oprette et 'dictionary' i Python benytter man krøllede parenteser: { 'navn_1': værdi }
   Nedenfor opretter vi et 'dictionary' med variabel navnet 'questGet', som indeholder tre felter 'cmd', 'user' og 'questNo'.
 </p>
-<p class="codeblock flow-text">questGet =
-    {
-        'cmd'     : 'get',
-        'questNo' : 1,
-        'user'    : 'Super koder',
-    }</p>
+<p class="codeblock flow-text">questGet = {
+  'cmd'     : 'get',
+  'questNo' : 1,
+  'user'    : 'Super koder',
+}</p>
 
 <p class="flow-text light">
   Endelig kan vi sende vores dictionary afsted til serveren.
 </p>
 <p class="codeblock flow-text">s = Session()
 r = s.post('http://webquest.local', json=questGet)</p>
+
 <p class="flow-text light">
   Svaret fra servern bliver modtaget i variablen 'r' og er pakket i et format der hedder JSON. Du kan eventuelt prøve at printe svaret til konsollen med funktionen 'print(r.text)'.
   Vi kan omdanne JSON pakken i 'r' til et 'dictionary' ved at bruge methoden '.json()' på svaret.
@@ -78,12 +78,10 @@ print(data['Hint']) # Eller man kan printe et enketlt af felterne i dictionary'e
 <p class="flow-text light">
   Nu kan vi sende svaret tilbage til serveren. Svaret skal pakkes i et  'dictionary' som vist nedenfor (udskift '%inputData' med værdien vi modtog fra serveren).
 </p>
-<p class="codeblock flow-text">questAnswer =
-    {
-        'cmd'        : 'answer',
-        'outputData' : %inputData # Vi sender det som vi modtog fra serveren tilbage igen.
-    }
-</p>
+<p class="codeblock flow-text">questAnswer = {
+  'cmd'        : 'answer',
+  'outputData' : %inputData # Vi sender det som vi modtog fra serveren tilbage igen.
+}</p>
 <p class="flow-text light">
   Prøv nu at sende dette 'dictionary' til servern, på samme måde som ovenfor, og se hvilket svar du får fra webserveren.
 </p>

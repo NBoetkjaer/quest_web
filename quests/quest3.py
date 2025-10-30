@@ -1,33 +1,31 @@
-
-import typing
 import random as rnd
 from quests.quest_base import (quest_base)
 from quests.utils import (safe_cast)
 
 class quest(quest_base):
-    def __init__(self):
-        super().__init__()
+  def __init__(self):
+    super().__init__()
 
-    def get_new_quest(self) -> dict:
-        values = []
-        for i in range (rnd.randrange(10, 20)):
-            values.append(rnd.randrange(-100, 100))
-        questdata = {
-            'hint': 'Beregn gennemsnittet.',
-            'inputData': values
-        }
-        return questdata
+  def get_new_quest(self) -> dict:
+    values = []
+    for i in range (rnd.randrange(10, 20)):
+      values.append(rnd.randrange(-100, 100))
+    questdata = {
+      'hint': 'Beregn gennemsnittet.',
+      'inputData': values
+    }
+    return questdata
 
-    def check_answer(self, input: dict, output: dict) -> bool:
-        indata = input['inputData']
-        result = sum(indata)/len(indata)
-        answer = safe_cast(output['outputData'], float)
-        if answer is not None:
-            return abs(result - answer) < 0.001
-        return False
+  def check_answer(self, input: dict, output: dict) -> bool:
+    indata = input['inputData']
+    result = sum(indata)/len(indata)
+    answer = safe_cast(output['outputData'], float)
+    if answer is not None:
+      return abs(result - answer) < 0.001
+    return False
 
-    def get_description(self) -> str:
-        return r'''
+  def get_description(self) -> str:
+    return r'''
 <h2 class="center brown-text"><i class="material-icons">Opgave 3</i></h2>
 <h5 class="center">Beregn gennemsnittet af tal</h5>
 
@@ -44,12 +42,12 @@ samt en løkke der løber gennem en liste.<br>
 </p>
 <p class="codeblock flow-text">#Simple for-løkke
 for i in range(100):
-    print(i) # 'i' tæller fra 0 til og med 99
+  print(i) # 'i' tæller fra 0 til og med 99
 
 # for-Løkke hen over en liste
 minListe = [1, 12, 123, 1234]
 for tal in minListe:
-    print(tal)
+  print(tal)
 </p>
 <p class="flow-text light">
 Prøv evt. at skrive flg. linier i en Python commando-linie og se hvad resultatet bliver.
@@ -62,12 +60,11 @@ print(*range(20,10,-1))
 <p class="flow-text light">
   Send nu nedenstående pakke til webserveren.
 </p>
-<p class="codeblock flow-text">questGet =
-    {
-        'cmd'     : 'get',
-        'questNo' : 3,
-        'user'    : 'Super koder', # Find selv på et navn eller brug dit eget.
-    }</p>
+<p class="codeblock flow-text">questGet = {
+  'cmd'     : 'get',
+  'questNo' : 3,
+  'user'    : 'Super koder', # Find selv på et navn eller brug dit eget.
+}</p>
 
 <p class="codeblock flow-text">r = s.post('http://webquest.local', json=questGet)</p>
 <p class="flow-text light">
@@ -81,11 +78,10 @@ print(*range(20,10,-1))
   Held og lykke med at lave løkker og pas godt på at de ikke bliver til uendelige "uløkker" &#128514;
 </p>
 
-<p class="codeblock flow-text">questAnswer =
-    {
-        'cmd'        : 'answer',
-        'outputData' : %Answer # Gennemsnittet af tallene
-    }
+<p class="codeblock flow-text">questAnswer = {
+  'cmd'        : 'answer',
+  'outputData' : %Answer # Gennemsnittet af tallene
+}
 </p>
 
 

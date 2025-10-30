@@ -6,10 +6,10 @@ class quest_base(object):
     def __init__(self):
         pass
 
-    def get_html_template(self)-> str:
+    def get_html_template(self) -> str:
         return "quest.html"
 
-    def get_evaluation_message(self, input: dict, output: dict)->str:
+    def get_evaluation(self, input: dict, output: dict) -> dict:
         retVal = self.check_answer(input, output)
         user = input['user']
         if retVal:
